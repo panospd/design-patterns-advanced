@@ -13,11 +13,11 @@ namespace DesignPatterns.UI.Observer
             _observers.Remove(observer);
         }
 
-        public void NotifyObservers(int value)
+        public void NotifyObservers()
         {
             foreach (var observer in _observers)
             {
-                observer.Update(value);
+                observer.Update();
             }
         }
     }

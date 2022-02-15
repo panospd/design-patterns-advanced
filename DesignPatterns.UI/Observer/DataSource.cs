@@ -7,7 +7,7 @@ namespace DesignPatterns.UI.Observer
         public void SetValue(int value)
         {
             Value = value;
-            NotifyObservers();
+            NotifyObservers(Value);
         }
     }
 }

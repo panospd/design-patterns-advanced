@@ -2,9 +2,9 @@ namespace DesignPatterns.UI.Observer
 {
     public class SpreadSheet : IObserver
     {
-        public void Update()
+        public void Update(int value)
         {
-            System.Console.WriteLine("Updating spreadsheet");
+            System.Console.WriteLine($"Updating spreadsheet with value {value}");
         }
     }
 }

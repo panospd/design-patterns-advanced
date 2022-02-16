@@ -2,11 +2,19 @@ namespace DesignPatterns.UI.Mediator
 {
     public abstract class UIControl
     {
-        protected DialogBox Owner;
+        private List<System.Action> _eventHandlers = new();
 
-        protected UIControl(DialogBox owner)
+        public void Attach(System.Action eventhandler)
         {
-            Owner = owner;
+            _eventHandlers.Add(eventhandler);
+        }
+
+        protected void ExecuteHandlers()
+        {
+            foreach(var eventhandler in _eventHandlers)
+            {
+                eventhandler();
+            }
         }
     }
-}
+};

@@ -1,6 +1,6 @@
 namespace DesignPatterns.UI.Mediator
 {
-    public class ArticlesDialogBox : DialogBox
+    public class ArticlesDialogBox
     {
         private ListBox _articleListBox;
         private TextBox _titleTextBox;
@@ -15,19 +15,11 @@ namespace DesignPatterns.UI.Mediator
 
         public ArticlesDialogBox()
         {
-            _articleListBox = new(this);
-            _titleTextBox = new(this);
-            _saveButton = new(this);
-        }
-        public override void Changed(UIControl control)
-        {
-            if (control == _articleListBox)
-            {
-                ArticleSelected();
-            } else if(control == _titleTextBox)
-            {
-                TitleChanged();
-            }
+            _articleListBox = new();
+            _articleListBox.Attach(ArticleSelected);
+            _titleTextBox = new();
+            _titleTextBox.Attach(TitleChanged);
+            _saveButton = new();
         }
 
         private void TitleChanged()
